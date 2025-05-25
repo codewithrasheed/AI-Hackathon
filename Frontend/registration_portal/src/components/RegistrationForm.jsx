@@ -19,13 +19,6 @@ const SaylaniForm = () => {
     }));
   };
 
-  const handleCourseChange = (e) => {
-    const selectedCourses = Array.from(e.target.selectedOptions).map(option => option.value);
-    setFormData(prev => ({
-      ...prev,
-      course: selectedCourses
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
