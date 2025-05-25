@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const serverless = require('serverless-http');
 
-const userRoutes = require('./userRoutes');
+const userRoutes = require('./routes/userRoutes');
 const idCardRoutes = require('./routes/idCardRoutes');
 const faqRoutes = require('./routes/faqRoutes');
 
