@@ -10,6 +10,7 @@ const SaylaniForm = () => {
     course: [],
     address: '',
   });
+  const [loader, setLoader] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +23,7 @@ const SaylaniForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoader(true);
     try {
       const response = await registerUser(formData);
       alert('User registered successfully! Check email for ID card.');
@@ -39,6 +41,8 @@ const SaylaniForm = () => {
       course: [],
       address: '',
     });
+
+    setLoader(false);
   };
 
   const styles = {
@@ -201,10 +205,20 @@ const SaylaniForm = () => {
               style={styles.formInput}
             />
           </div>
-
-          <button type="submit" style={styles.submitBtn}>
+          {
+            loader ?
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div> :
+            <button type="submit" style={styles.submitBtn}>
             SUBMIT
           </button>
+          }
         </form>
       </div>
     </div>
