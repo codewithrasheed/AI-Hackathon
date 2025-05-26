@@ -19,6 +19,11 @@ app.use('/api/users', userRoutes);
 app.use('/api/id-cards', idCardRoutes);
 app.use('/api/faqs', faqRoutes);
 
+app.get('/', (req, res)=> {
+  res.send('Welcome to Smit ID Card Generator API');
+})
+
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error("MongoDB Connection Error",err));
